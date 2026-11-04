@@ -3,6 +3,7 @@
  * Genera todas las versiones del widget a partir de core/ y targets/.
  *
  *   node build.mjs           → dist/<destino>/... y dist/paquetes/*.zip
+ *   node build.mjs --web     → solo dist/web (lo que necesita la app Tauri; no usa `zip`)
  *
  * Solo usa Node (≥ 18) y la orden `zip`. Para la extensión de GNOME usa
  * además `glib-compile-schemas` si está instalado.
@@ -19,6 +20,7 @@ const VERSION = fs.readFileSync(path.join(ROOT, "VERSION"), "utf8").trim();
 const UUID = "calendario-pagano@lacaetra.com";
 const DIST = path.join(ROOT, "dist");
 const PKG = path.join(DIST, "paquetes");
+const SOLO_WEB = process.argv.includes("--web");
 
 const read = p => fs.readFileSync(path.join(ROOT, p), "utf8");
 const CORE = read("core/coligny.js").replaceAll("@@VERSION@@", VERSION);
@@ -58,6 +60,7 @@ fs.mkdirSync(PKG, {recursive: true});
 const icon = path.join(ROOT, "core/icon.png");
 const built = [];
 
+if (!SOLO_WEB) {
 // Cinnamon: desklet
 {
     const dir = path.join(DIST, "cinnamon", UUID);
@@ -91,6 +94,8 @@ const built = [];
     const dir = path.join(DIST, "ubersicht", "calendario-pagano.widget");
     copyTarget("targets/ubersicht", dir);
     built.push(zip(dir, `calendario-pagano-macos-ubersicht-${VERSION}.zip`, {includeDir: true}));
+}
+
 }
 
 // Web (vista previa y interfaz de la app Tauri)
