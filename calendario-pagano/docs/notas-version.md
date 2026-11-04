@@ -1,8 +1,8 @@
-**Novedades de la 0.9.1**
+**Novedades de la 0.9.2**
 
-- GNOME: la rueda se arrastra con el ratón y el botón derecho abre «Configurar» y «Acerca de».
-- App de escritorio (Windows, XFCE, MATE, LXDE…): menú con el botón derecho sobre la rueda y ventana «Acerca de».
-- Guía de instalación paso a paso y apartado de problemas conocidos.
+- **Android**: nuevo widget para la pantalla de inicio, con fondo transparente (`calendario-pagano-*-android.apk`). Sin servicios de Google.
+- macOS: instalador de una sola orden.
+- Guía de instalación ampliada y avisos de Windows (Edge, SmartScreen).
 
 Rueda del año con las ocho fiestas, el día del calendario celta de Coligny y la fase lunar.
 
@@ -13,6 +13,7 @@ Rueda del año con las ocho fiestas, el día del calendario celta de Coligny y l
 - **KDE Plasma 6**: `calendario-pagano-plasma-*.plasmoid`
 - **Windows**: `Calendario.Pagano_*_x64-setup.exe`
 - **XFCE, MATE y otros Linux**: `.deb`, `.rpm` o `.AppImage`
+- **Android**: `calendario-pagano-*-android.apk`
 - **macOS**: `calendario-pagano-macos-ubersicht-*.zip` (con [Übersicht](https://tracesof.net/uebersicht/))
 
 Autoría de contenidos: Andrea M. Miranda Duque y Fernando A. Muñoz Villarejo - La Caetra, retrocultura.

@@ -13,6 +13,7 @@ página de **[Versiones](https://github.com/LaCaetra/lacaetra-retrocultura/relea
 - [XFCE, MATE, LXDE, Budgie y otros escritorios Linux](#xfce-mate-lxde-budgie-y-otros-escritorios-linux)
 - [Windows 10 y 11](#windows-10-y-11)
 - [macOS](#macos)
+- [Android](#android)
 - [Desinstalar](#desinstalar) · [Si algo no funciona](#si-algo-no-funciona)
 
 ---
@@ -186,6 +187,24 @@ const SHOW_PHASE_NAME = true;     // mostrar el nombre de la fase lunar (false p
 
 Al guardar, la rueda se actualiza sola.
 
+## Android
+
+Widget de la pantalla de inicio con fondo transparente. Android 7 o posterior; no
+necesita servicios de Google.
+
+1. Descarga `calendario-pagano-X.Y.Z-android.apk` en el móvil (o pásalo desde el ordenador).
+2. Ábrelo desde **Descargas** o el gestor de archivos. Android pedirá permiso para
+   **instalar apps de origen desconocido** desde esa app: concédelo y pulsa **Instalar**.
+3. Abre **Calendario Pagano**: verás la rueda, los ajustes y «Acerca de».
+4. Pulsa **Añadir el widget ahora**, o mantén pulsado un hueco de la pantalla de inicio →
+   **Widgets** → **Calendario Pagano**, y arrástralo.
+5. Para cambiar el **tamaño**, mantén pulsado el widget y tira de sus bordes. Tocándolo
+   se abre la app (ajustes y «Acerca de»).
+
+Para recibir avisos de actualizaciones, puedes instalarlo con
+[Obtainium](https://obtainium.imranr.dev/) indicando la dirección de este repositorio.
+Pronto también en **F-Droid**.
+
 ---
 
 ## Desinstalar
@@ -198,6 +217,7 @@ Al guardar, la rueda se actualiza sola.
 | Debian/Ubuntu | `sudo apt remove calendario-pagano` |
 | Fedora | `sudo dnf remove calendario-pagano` |
 | Windows | Configuración → Aplicaciones → Calendario Pagano → Desinstalar |
+| Android | Mantén pulsado el icono → Desinstalar |
 | macOS | Borra la carpeta `calendario-pagano.widget` de la carpeta de widgets |
 
 ## Si algo no funciona

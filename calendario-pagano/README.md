@@ -1,6 +1,6 @@
 # Calendario Pagano · rueda del año
 
-Widget de escritorio con la **rueda del año**: las ocho fiestas, el día del
+Widget de escritorio (y de móvil Android) con la **rueda del año**: las ocho fiestas, el día del
 **calendario celta de Coligny** y la **fase lunar** de hoy, con la cuenta atrás
 hasta la próxima fiesta. Funciona sin conexión.
 
@@ -17,6 +17,7 @@ Descarga el paquete de tu sistema en **[Versiones](https://github.com/LaCaetra/l
 | Linux · KDE Plasma 6 (Kubuntu, Fedora KDE, Debian…) | `calendario-pagano-plasma-*.plasmoid` | plasmoide |
 | Linux · XFCE, MATE, Budgie y otros | `Calendario.Pagano_*_amd64.deb`, `.rpm` o `.AppImage` | app de escritorio |
 | Windows 10 y 11 | `Calendario.Pagano_*_x64-setup.exe` | app de escritorio |
+| Android 7 o posterior | `calendario-pagano-*-android.apk` | widget de pantalla de inicio |
 | macOS 12 o posterior | instalador de una orden o `calendario-pagano-macos-ubersicht-*.zip` | widget de Übersicht |
 
 **📖 [Guía de instalación paso a paso para cada escritorio](INSTALAR.md)**, con
@@ -34,7 +35,7 @@ Lo más importante:
 ## Problemas conocidos y soluciones
 
 Probado en Debian 13 con GNOME 48 (Wayland), KDE Plasma 6 (Wayland), Cinnamon,
-MATE, XFCE y LXDE, y en Windows 10.
+MATE, XFCE y LXDE, en Windows 10 y en Android 15 (LineageOS).
 
 | Problema | Solución |
 |---|---|

@@ -1,6 +1,6 @@
 [package]
 name = "calendario-pagano"
-version = "0.9.1"
+version = "0.9.2"
 description = "Calendario Pagano: rueda del año celta como widget de escritorio"
 authors = ["Andrea M. Miranda Duque", "Fernando A. Muñoz Villarejo"]
 license = "GPL-3.0-or-later"
