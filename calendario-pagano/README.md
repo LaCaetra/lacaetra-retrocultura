@@ -139,5 +139,8 @@ Villarejo** - [La Caetra, retrocultura](https://lacaetra.com/).
 - Código: [GPL-3.0-or-later](../LICENSE).
 - Contenidos (textos, nombres y descripciones de las fiestas, diseño de la rueda,
   paleta e icono): [CC BY-SA 4.0](../LICENSE-CC-BY-SA-4.0.txt).
+- El nombre y el logotipo de La Caetra son marca nuestra y no entran en esas
+  licencias: las versiones modificadas deben llevar otro nombre e icono y no
+  presentarse como oficiales ([detalles](../README.md#marca)).
 
 Si te gusta y quieres apoyarnos: **[Liberapay](https://liberapay.com/lacaetra/donate)**.

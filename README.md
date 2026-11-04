@@ -28,7 +28,24 @@ libre y sin ánimo de lucro.
 ## Licencias
 
 - **Código**: GNU GPL v3 o posterior ([LICENSE](LICENSE)).
-- **Contenidos** (textos, diseño, ilustraciones, paleta e iconos): Creative Commons
+- **Contenidos** (textos, diseño, ilustraciones, paleta e iconos, salvo la marca): Creative Commons
   Reconocimiento-CompartirIgual 4.0 ([LICENSE-CC-BY-SA-4.0.txt](LICENSE-CC-BY-SA-4.0.txt)).
+
+## Marca
+
+El nombre **«La Caetra»** («La Caetra, retrocultura») y su **logotipo** identifican
+nuestro proyecto y **no están incluidos** en las licencias anteriores: las
+licencias Creative Commons no conceden derechos de marca (CC BY-SA 4.0, § 2.b.2).
+
+Puedes estudiar, modificar y redistribuir el código y los contenidos según sus
+licencias, pero si distribuyes una versión modificada:
+
+- no la presentes como oficial ni como hecha o respaldada por La Caetra;
+- cámbiale el nombre (o indica claramente «versión no oficial») y sustituye el
+  logotipo y el icono por otros propios;
+- sigue citando la autoría original, como exige la licencia CC BY-SA.
+
+Para cualquier otro uso del nombre o del logotipo, escríbenos a través de
+[lacaetra.com](https://lacaetra.com/).
 
 Autoría de contenidos: Andrea M. Miranda Duque y Fernando A. Muñoz Villarejo.
