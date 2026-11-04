@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Calendario Pagano</string>
+    <string name="descripcion">Rueda del año con las ocho fiestas, el día del calendario celta de Coligny y la fase lunar.</string>
+    <string name="ajustes">Ajustes</string>
+    <string name="mostrar_fase">Mostrar el nombre de la fase lunar</string>
+    <string name="anadir_titulo">Poner la rueda en la pantalla de inicio</string>
+    <string name="anadir_texto">Mantén pulsado un hueco libre de la pantalla de inicio → Widgets → Calendario Pagano, y arrástralo. Para cambiar su tamaño, mantenlo pulsado y tira de sus bordes.</string>
+    <string name="anadir_boton">Añadir el widget ahora</string>
+    <string name="acerca_de">Acerca de</string>
+    <string name="version">Versión %1$s</string>
+    <string name="autoria">Autoría de contenidos: Andrea M. Miranda Duque y Fernando A. Muñoz Villarejo · La Caetra, retrocultura.</string>
+    <string name="nota_ia">Este software ha sido desarrollado con la ayuda de Claude, el asistente de IA de Anthropic.</string>
+    <string name="web">Web de La Caetra</string>
+    <string name="codigo">Código fuente e incidencias</string>
+    <string name="donar">Apoya el proyecto (Liberapay)</string>
+    <string name="licencias">Código: GPL-3.0 o posterior. Contenidos: CC BY-SA 4.0. El nombre y el logotipo de La Caetra no están incluidos en estas licencias.</string>
+</resources>

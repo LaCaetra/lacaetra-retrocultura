@@ -110,6 +110,12 @@ if (!SOLO_WEB) {
 {
     const conf = path.join(ROOT, "targets/tauri/tauri.conf.json");
     fs.writeFileSync(conf, fs.readFileSync(conf, "utf8").replace(/"version": "[^"]*"/, `"version": "${VERSION}"`));
+    // Android: versionName y versionCode (0.9.1 → 901; 1.2.3 → 10203).
+    const gradle = path.join(ROOT, "targets/android/app/build.gradle.kts");
+    const [ma, mi, pa] = VERSION.split(".").map(Number);
+    fs.writeFileSync(gradle, fs.readFileSync(gradle, "utf8")
+        .replace(/versionCode = \d+/, `versionCode = ${ma * 10000 + mi * 100 + pa}`)
+        .replace(/versionName = "[^"]*"/, `versionName = "${VERSION}"`));
     const cargo = path.join(ROOT, "targets/tauri/Cargo.toml");
     fs.writeFileSync(cargo, fs.readFileSync(cargo, "utf8").replace(/^version = "[^"]*"/m, `version = "${VERSION}"`));
     // Si ya se compiló la app, sus paquetes se copian con nombres sin espacios.
