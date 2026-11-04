@@ -117,10 +117,13 @@ transparente y siempre detrás de las demás ventanas.
 
 ## Windows 10 y 11
 
-1. Descarga `Calendario.Pagano_X.Y.Z_x64-setup.exe` y ábrelo.
-2. Windows puede avisar de que el programa no está firmado (SmartScreen): pulsa
-   **Más información → Ejecutar de todas formas**. Es normal en programas libres
-   que no pagan un certificado de firma.
+1. Descarga `Calendario.Pagano_X.Y.Z_x64-setup.exe`. Si **Edge** dice que «no se
+   descarga habitualmente», abre la lista de descargas y pulsa **⋯ → Conservar →
+   Mostrar más → Conservar de todos modos**.
+2. Ábrelo. Si sale la pantalla azul «Windows protegió su PC» (SmartScreen), pulsa
+   **Más información → Ejecutar de todas formas**. Si no aparece ese botón: clic
+   derecho sobre el archivo → **Propiedades** → marca **Desbloquear** → Aceptar.
+   Estos avisos son normales en programas libres que no pagan un certificado de firma.
 3. Al terminar, la rueda aparece en el escritorio. **Arrástrala** para colocarla.
 4. **Botón derecho sobre la rueda** (o el **icono junto al reloj**, que puede estar
    escondido en la flecha **^**): tamaño, nombre de la fase lunar, **Iniciar con el
