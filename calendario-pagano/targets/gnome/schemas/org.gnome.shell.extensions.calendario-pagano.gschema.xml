@@ -6,14 +6,14 @@
       <range min="160" max="1000"/>
       <summary>Tamaño de la rueda en píxeles</summary>
     </key>
-    <key name="pos-x" type="i">
-      <default>95</default>
-      <range min="0" max="100"/>
+    <key name="pos-x" type="d">
+      <default>95.0</default>
+      <range min="0.0" max="100.0"/>
       <summary>Posición horizontal (% del ancho del monitor)</summary>
     </key>
-    <key name="pos-y" type="i">
-      <default>8</default>
-      <range min="0" max="100"/>
+    <key name="pos-y" type="d">
+      <default>8.0</default>
+      <range min="0.0" max="100.0"/>
       <summary>Posición vertical (% del alto del monitor)</summary>
     </key>
     <key name="monitor" type="i">

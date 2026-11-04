@@ -73,6 +73,7 @@ if (!SOLO_WEB) {
 {
     const dir = path.join(DIST, "gnome", UUID);
     copyTarget("targets/gnome", dir);
+    fs.copyFileSync(icon, path.join(dir, "icon.png"));
     try {
         execFileSync("glib-compile-schemas", [path.join(dir, "schemas")]);
     } catch {
