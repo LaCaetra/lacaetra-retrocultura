@@ -1,0 +1,9 @@
+<p>Home screen widget with the <b>wheel of the year</b>, on a transparent background:</p>
+<ul>
+<li>Today's date in the <b>Celtic Coligny calendar</b>: the year begins at Samhain and every month begins with its full moon (29- or 30-day months, with the extra month Mid Samonios in 13-moon years).</li>
+<li>The <b>eight festivals</b> of the wheel (Samhain, Yule, Imbolc, Ostara, Beltane, Litha, Lughnasad and Mabon), with a pointer on today and a countdown to the next one.</li>
+<li>Today's <b>moon phase</b>, based on the Spanish National Astronomical Observatory (IGN) tables.</li>
+</ul>
+<p>Works offline, needs no permissions, collects no data and uses no Google services or third-party libraries. The interface is in Spanish.</p>
+<p>Also available as a desktop widget for Linux (GNOME, KDE Plasma, Cinnamon, XFCE, MATE, LXDE), Windows and macOS.</p>
+<p>Content by Andrea M. Miranda Duque and Fernando A. Muñoz Villarejo - La Caetra, retrocultura. The code was developed with the help of Claude, Anthropic's AI assistant, and has been reviewed and tested by us.</p>

@@ -1,0 +1,1 @@
+First Android release: home screen widget with the wheel of the year, the Coligny calendar date and the moon phase.

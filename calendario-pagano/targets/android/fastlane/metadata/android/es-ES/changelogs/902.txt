@@ -1,0 +1,1 @@
+Primera versión para Android: widget de la pantalla de inicio con la rueda del año, el día del calendario de Coligny y la fase lunar.

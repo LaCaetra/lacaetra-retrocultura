@@ -1,0 +1,28 @@
+Categories:
+  - Calendar & Agenda
+  - Time
+License: GPL-3.0-or-later
+AuthorName: La Caetra, retrocultura
+WebSite: https://lacaetra.com/
+SourceCode: https://github.com/LaCaetra/lacaetra-retrocultura/tree/main/calendario-pagano
+IssueTracker: https://github.com/LaCaetra/lacaetra-retrocultura/issues
+Changelog: https://github.com/LaCaetra/lacaetra-retrocultura/releases
+Liberapay: lacaetra
+
+AutoName: Calendario Pagano
+
+RepoType: git
+Repo: https://github.com/LaCaetra/lacaetra-retrocultura.git
+
+Builds:
+  - versionName: 0.9.2
+    versionCode: 902
+    commit: calendario-pagano-v0.9.2
+    subdir: calendario-pagano/targets/android/app
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^calendario-pagano-v.*$
+CurrentVersion: 0.9.2
+CurrentVersionCode: 902

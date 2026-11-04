@@ -1,0 +1,9 @@
+<p>Widget para la pantalla de inicio con la <b>rueda del año</b>, con fondo transparente:</p>
+<ul>
+<li>El <b>día del calendario celta de Coligny</b>: el año empieza en Samhain y cada mes empieza con su luna llena (meses de 29 o 30 días; mes extra Mid Samonios en los años de 13 lunas).</li>
+<li>Las <b>ocho fiestas</b> de la rueda (Samhain, Yule, Imbolc, Ostara, Beltane, Litha, Lughnasad y Mabon) con una aguja en el día de hoy y la cuenta atrás hasta la próxima.</li>
+<li>La <b>fase lunar</b> del día, con la tabla del Observatorio Astronómico Nacional (IGN).</li>
+</ul>
+<p>Funciona sin conexión, no necesita permisos, no recoge datos y no usa servicios de Google ni bibliotecas externas.</p>
+<p>Existe también como widget de escritorio para Linux (GNOME, KDE Plasma, Cinnamon, XFCE, MATE, LXDE), Windows y macOS.</p>
+<p>Autoría de contenidos: Andrea M. Miranda Duque y Fernando A. Muñoz Villarejo - La Caetra, retrocultura. El código se ha desarrollado con la ayuda de Claude, el asistente de IA de Anthropic, y lo hemos revisado y probado nosotros.</p>
