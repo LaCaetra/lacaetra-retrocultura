@@ -30,6 +30,9 @@ jobs:
         with:
           node-version: 22
       - run: sudo apt-get update && sudo apt-get install -y libglib2.0-bin zip
+      - name: Número de versión
+        shell: bash
+        run: echo "VERSION=${GITHUB_REF_NAME#calendario-pagano-v}" >> "$GITHUB_ENV"
       - run: node --test "tests/*.test.mjs"
       - run: node build.mjs
       - uses: actions/upload-artifact@v4
@@ -40,7 +43,7 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
         with:
-          name: Calendario Pagano ${{ github.ref_name }}
+          name: Calendario Pagano ${{ env.VERSION }}
           body_path: calendario-pagano/docs/notas-version.md
           files: calendario-pagano/dist/paquetes/*
 
@@ -77,6 +80,9 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y libwebkit2gtk-4.1-dev libayatana-appindicator3-dev librsvg2-dev libxdo-dev patchelf
+      - name: Número de versión
+        shell: bash
+        run: echo "VERSION=${GITHUB_REF_NAME#calendario-pagano-v}" >> "$GITHUB_ENV"
       - run: node build.mjs --web
       - uses: tauri-apps/tauri-action@v0
         env:
@@ -85,5 +91,5 @@ jobs:
           projectPath: calendario-pagano/targets/tauri
           tauriScript: npx -y @tauri-apps/cli@2
           tagName: ${{ github.ref_name }}
-          releaseName: Calendario Pagano ${{ github.ref_name }}
+          releaseName: Calendario Pagano ${{ env.VERSION }}
           args: ${{ matrix.args }}
