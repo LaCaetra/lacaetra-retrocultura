@@ -129,9 +129,8 @@ recomendada en Mac es el widget de Übersicht.
 
 ## Cómo se ha hecho
 
-El diseño, los contenidos y las decisiones son de La Caetra. El código se ha
-escrito con ayuda de un asistente de IA (Claude, de Anthropic) y lo hemos revisado
-y probado nosotros.
+Este software ha sido desarrollado con la ayuda de Claude, el asistente de IA de
+Anthropic. El diseño, los contenidos y las decisiones son de La Caetra.
 
 ## Autoría y licencia
 

@@ -1,3 +1,5 @@
+<p align="center"><img src=".github/imagenes/logo-lacaetra.png" alt="Logotipo de La Caetra" width="160"></p>
+
 # La Caetra · retrocultura
 
 Proyectos libres de [La Caetra, retrocultura](https://lacaetra.com/): cultura
