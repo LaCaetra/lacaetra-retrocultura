@@ -19,61 +19,16 @@ Descarga el paquete de tu sistema en **[Versiones](https://github.com/LaCaetra/l
 | Windows 10 y 11 | `Calendario.Pagano_*_x64-setup.exe` | app de escritorio |
 | macOS | `calendario-pagano-macos-ubersicht-*.zip` | widget de Übersicht |
 
-### Cinnamon
+**📖 [Guía de instalación paso a paso para cada escritorio](INSTALAR.md)**, con
+instrucciones para desinstalar y qué hacer si algo no funciona.
 
-```bash
-unzip calendario-pagano-cinnamon-*.zip -d ~/.local/share/cinnamon/desklets/
-```
+Lo más importante:
 
-Luego: clic derecho en el escritorio → **Añadir desklets** → *Calendario Pagano*.
-En su configuración se elige el tamaño y si se muestra el nombre de la fase lunar.
-
-### GNOME
-
-```bash
-gnome-extensions install --force calendario-pagano-gnome-*.zip
-```
-
-Cierra la sesión y vuelve a entrar (en Wayland es necesario), y actívala con
-**Extensiones** o con `gnome-extensions enable calendario-pagano@lacaetra.com`.
-La rueda aparece sobre el fondo de pantalla, detrás de las ventanas. Tamaño,
-posición y monitor se cambian en sus preferencias.
-
-### KDE Plasma 6
-
-```bash
-kpackagetool6 --type Plasma/Applet --install calendario-pagano-plasma-*.plasmoid
-```
-
-O desde el escritorio: **Añadir widgets** → **Obtener widgets nuevos** →
-**Instalar desde archivo local**. El tamaño se cambia arrastrando el borde del
-widget en el modo de edición.
-
-### Windows, XFCE, MATE y otros escritorios Linux
-
-Instala el `.exe` (Windows), el `.deb` (Debian, Ubuntu, Mint), el `.rpm` (Fedora,
-openSUSE) o ejecuta el `.AppImage`. La rueda aparece en el escritorio, sin marco,
-con fondo transparente y detrás de las ventanas:
-
-- **Arrástrala** con el ratón para colocarla; recuerda dónde la dejaste.
-- Las opciones están en el **icono de la bandeja del sistema**, junto al reloj:
-  tamaño, nombre de la fase lunar, **iniciar con el sistema** y salir.
-
-> En GNOME o KDE con Wayland, usa mejor su widget propio: Wayland no deja que
-> una aplicación se quede siempre detrás de las demás ventanas.
->
-> En Windows, la primera vez SmartScreen puede avisar de que el programa no está
-> firmado: **Más información → Ejecutar de todas formas**.
-
-### macOS
-
-1. Instala [Übersicht](https://tracesof.net/uebersicht/), un programa libre y
-   gratuito para poner widgets en el escritorio del Mac.
-2. Descomprime `calendario-pagano-macos-ubersicht-*.zip` y mueve la carpeta
-   `calendario-pagano.widget` a la carpeta de widgets de Übersicht (menú de
-   Übersicht → **Open Widgets Folder**).
-
-El tamaño y la posición se cambian al principio de `index.jsx`.
+- **GNOME**: después de instalar la extensión hay que **cerrar la sesión y volver
+  a entrar** antes de activarla.
+- **Windows**: si SmartScreen avisa, pulsa **Más información → Ejecutar de todas formas**.
+- **App de escritorio** (Windows, XFCE, MATE…): la rueda se arrastra con el ratón y
+  sus opciones están en el icono junto al reloj.
 
 ## Cómo se calculan las fechas
 

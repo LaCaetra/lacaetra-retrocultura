@@ -1,6 +1,6 @@
 Rueda del año con las ocho fiestas, el día del calendario celta de Coligny y la fase lunar.
 
-**Elige el paquete de tu sistema** (instrucciones en el [README](https://github.com/LaCaetra/lacaetra-retrocultura/tree/main/calendario-pagano#instalación)):
+**Elige el paquete de tu sistema** (instrucciones paso a paso en la [guía de instalación](https://github.com/LaCaetra/lacaetra-retrocultura/blob/main/calendario-pagano/INSTALAR.md)):
 
 - **Cinnamon**: `calendario-pagano-cinnamon-*.zip`
 - **GNOME 45–51**: `calendario-pagano-gnome-*.zip`
