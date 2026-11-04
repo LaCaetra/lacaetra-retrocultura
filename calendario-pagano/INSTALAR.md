@@ -99,12 +99,15 @@ transparente y siempre detrás de las demás ventanas.
 
 > **¿Sale un cuadrado negro alrededor de la rueda?** La transparencia necesita un
 > *compositor*. XFCE y MATE lo traen activado; **LXDE y Openbox no**. Instala
-> `picom` y añádelo al inicio de sesión:
+> `picom` y haz que arranque al iniciar sesión (el modo `xrender` funciona también
+> en máquinas virtuales y equipos sin aceleración gráfica):
 > ```bash
 > sudo apt install picom
-> mkdir -p ~/.config/autostart && cp /usr/share/applications/picom.desktop ~/.config/autostart/
+> mkdir -p ~/.config/autostart
+> printf '[Desktop Entry]\nType=Application\nName=picom\nExec=picom --backend xrender\n' > ~/.config/autostart/picom.desktop
 > ```
-> Cierra la sesión y vuelve a entrar.
+> Cierra la sesión y vuelve a entrar. El calendario tiene que abrirse **después** que
+> picom: si lo abriste antes, ciérralo (botón derecho → Salir) y vuelve a abrirlo.
 >
 > En GNOME y KDE con Wayland usa mejor su widget propio (arriba): Wayland no deja
 > que una aplicación se quede siempre detrás de las demás ventanas.
