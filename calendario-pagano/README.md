@@ -15,8 +15,8 @@ Descarga el paquete de tu sistema en **[Versiones](https://github.com/LaCaetra/l
 | Linux · Cinnamon (Mint, Fedora Cinnamon…) | `calendario-pagano-cinnamon-*.zip` | desklet |
 | Linux · GNOME 45 a 51 (Debian, Ubuntu, Fedora…) | `calendario-pagano-gnome-*.zip` | extensión |
 | Linux · KDE Plasma 6 (Kubuntu, Fedora KDE, Debian…) | `calendario-pagano-plasma-*.plasmoid` | plasmoide |
-| Linux · XFCE, MATE, Budgie y otros | `calendario-pagano-*-linux-*.deb`, `.rpm` o `.AppImage` | app de escritorio |
-| Windows 10 y 11 | `calendario-pagano-*-windows-x64-setup.exe` | app de escritorio |
+| Linux · XFCE, MATE, Budgie y otros | `Calendario.Pagano_*_amd64.deb`, `.rpm` o `.AppImage` | app de escritorio |
+| Windows 10 y 11 | `Calendario.Pagano_*_x64-setup.exe` | app de escritorio |
 | macOS | `calendario-pagano-macos-ubersicht-*.zip` | widget de Übersicht |
 
 ### Cinnamon
