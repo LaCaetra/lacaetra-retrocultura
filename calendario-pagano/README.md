@@ -44,6 +44,7 @@ MATE, XFCE y LXDE, y en Windows 10.
 | **GNOME, KDE o XFCE con Wayland**: la app de escritorio no se queda detrás de las ventanas. | Wayland no lo permite. En GNOME y KDE usa su widget propio; en XFCE, la sesión normal (X11). |
 | **Windows · Edge** bloquea la descarga («no se descarga habitualmente»). | En la lista de descargas, **⋯ → Conservar → Mostrar más → Conservar de todos modos**. Es un aviso por ser un archivo nuevo y sin firma digital. |
 | **Windows** no deja ejecutar el instalador (SmartScreen: «Windows protegió su PC»). | Pulsa **Más información → Ejecutar de todas formas**. Si no aparece ese botón: clic derecho sobre el `.exe` → **Propiedades** → marca **Desbloquear** → Aceptar, y vuelve a abrirlo. |
+| **Windows 11** con «Control inteligente de aplicaciones» (*Smart App Control*) activado bloquea el instalador sin opción de ejecutarlo. | Esa función bloquea los programas sin firma digital. Solo se puede desactivar en **Seguridad de Windows → Control de aplicaciones y navegador**, y Windows no permite volver a activarla después: decide tú si te compensa. |
 | **macOS** no abre una app descargada. | En Mac se usa el widget de **Übersicht**, que no necesita firma. |
 
 ## Cómo se calculan las fechas
