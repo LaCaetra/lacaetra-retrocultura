@@ -21,6 +21,7 @@ Descarga el paquete de tu sistema en **[Versiones](https://github.com/LaCaetra/l
 
 **📖 [Guía de instalación paso a paso para cada escritorio](INSTALAR.md)**, con
 instrucciones para desinstalar y qué hacer si algo no funciona.
+**⚠️ Antes de instalar, mira los [problemas conocidos y sus soluciones](#problemas-conocidos-y-soluciones).**
 
 Lo más importante:
 
@@ -29,6 +30,20 @@ Lo más importante:
 - **Windows**: si SmartScreen avisa, pulsa **Más información → Ejecutar de todas formas**.
 - En todos los escritorios (salvo Übersicht en Mac) la rueda **se arrastra** con el
   ratón y el **botón derecho** sobre ella da acceso a la configuración y a «Acerca de».
+
+## Problemas conocidos y soluciones
+
+Probado en Debian 13 con GNOME 48 (Wayland), KDE Plasma 6 (Wayland), Cinnamon,
+MATE, XFCE y LXDE.
+
+| Problema | Solución |
+|---|---|
+| **GNOME**: al activar la extensión dice que «no existe». | Después de instalarla hay que **cerrar la sesión y volver a entrar**; luego se activa. |
+| **LXDE, Openbox** y otros escritorios sin compositor: la rueda sale dentro de un **cuadrado negro**. | Instala `picom` y arráncalo en modo `xrender` al iniciar sesión; el calendario debe abrirse después de picom. Instrucciones en la [guía](INSTALAR.md#xfce-mate-lxde-budgie-y-otros-escritorios-linux). Si usas varios escritorios en el mismo equipo, añade `OnlyShowIn=LXDE;` al arranque de picom para que no choque con el compositor de MATE o XFCE. |
+| **Instalar el `.deb` como root** (`su`) da «fichero no admitido». | Como root, `~` es `/root`: usa la ruta completa (`/home/tu-usuario/Descargas/…`) o `./archivo.deb` desde su carpeta. Sin `./` delante, apt busca el nombre en los repositorios. |
+| **GNOME, KDE o XFCE con Wayland**: la app de escritorio no se queda detrás de las ventanas. | Wayland no lo permite. En GNOME y KDE usa su widget propio; en XFCE, la sesión normal (X11). |
+| **Windows** avisa de que el programa no está firmado (SmartScreen). | **Más información → Ejecutar de todas formas**. |
+| **macOS** no abre una app descargada. | En Mac se usa el widget de **Übersicht**, que no necesita firma. |
 
 ## Cómo se calculan las fechas
 

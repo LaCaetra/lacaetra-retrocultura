@@ -106,6 +106,9 @@ transparente y siempre detrás de las demás ventanas.
 > mkdir -p ~/.config/autostart
 > printf '[Desktop Entry]\nType=Application\nName=picom\nExec=picom --backend xrender\n' > ~/.config/autostart/picom.desktop
 > ```
+> Si tienes varios escritorios instalados, añade también `OnlyShowIn=LXDE;` a ese
+> archivo para que picom no arranque en MATE o XFCE, que ya tienen su compositor.
+>
 > Cierra la sesión y vuelve a entrar. El calendario tiene que abrirse **después** que
 > picom: si lo abriste antes, ciérralo (botón derecho → Salir) y vuelve a abrirlo.
 >

@@ -1,3 +1,9 @@
+**Novedades de la 0.9.1**
+
+- GNOME: la rueda se arrastra con el ratón y el botón derecho abre «Configurar» y «Acerca de».
+- App de escritorio (Windows, XFCE, MATE, LXDE…): menú con el botón derecho sobre la rueda y ventana «Acerca de».
+- Guía de instalación paso a paso y apartado de problemas conocidos.
+
 Rueda del año con las ocho fiestas, el día del calendario celta de Coligny y la fase lunar.
 
 **Elige el paquete de tu sistema** (instrucciones paso a paso en la [guía de instalación](https://github.com/LaCaetra/lacaetra-retrocultura/blob/main/calendario-pagano/INSTALAR.md)):
