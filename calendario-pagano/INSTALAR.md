@@ -134,15 +134,35 @@ transparente y siempre detrás de las demás ventanas.
 En Mac se usa **Übersicht**, un programa libre y gratuito para poner widgets en el
 escritorio.
 
-1. Descarga e instala [Übersicht](https://tracesof.net/uebersicht/) y ábrelo
-   (aparece un icono en la barra de menús).
-2. Descarga `calendario-pagano-macos-ubersicht-X.Y.Z.zip` y descomprímelo
-   (doble clic).
-3. En el icono de Übersicht → **Open Widgets Folder**, y mueve allí la carpeta
-   `calendario-pagano.widget`.
-4. La rueda aparece arriba a la derecha. Übersicht no tiene menús ni arrastre: el
-   **tamaño**, la **posición** y el nombre de la fase lunar se cambian en las primeras
-   líneas de `calendario-pagano.widget/index.jsx` (con cualquier editor de texto).
+**1. Instala Übersicht**
+- Descárgalo de [tracesof.net/uebersicht](https://tracesof.net/uebersicht/) y abre el `.zip`.
+- Arrastra **Übersicht** a la carpeta **Aplicaciones** y ábrelo: aparece un icono en
+  la barra de menús, arriba a la derecha.
+- Para que arranque solo: icono de Übersicht → **Preferences…** → marca
+  **Launch Übersicht when I log in**.
+
+**2. Descarga el calendario**
+- Descarga `calendario-pagano-macos-ubersicht-X.Y.Z.zip` y haz doble clic para
+  descomprimirlo: sale la carpeta `calendario-pagano.widget`.
+
+**3. Ponlo en Übersicht**
+- Icono de Übersicht → **Open Widgets Folder** (es
+  `~/Library/Application Support/Übersicht/widgets`).
+- Mueve allí la carpeta `calendario-pagano.widget`.
+- La rueda aparece en unos segundos arriba a la derecha. Si no, icono de
+  Übersicht → **Refresh All Widgets**.
+
+**4. Ajustes**
+Übersicht no tiene menús ni arrastre: abre `calendario-pagano.widget/index.jsx`
+con **TextEdit** (o cualquier editor de texto) y cambia las primeras líneas:
+
+```js
+const SIZE = 360;                 // tamaño de la rueda en píxeles
+const TOP = 40, RIGHT = 40;       // distancia a la esquina superior derecha
+const SHOW_PHASE_NAME = true;     // mostrar el nombre de la fase lunar (false para ocultarlo)
+```
+
+Al guardar, la rueda se actualiza sola.
 
 ---
 
