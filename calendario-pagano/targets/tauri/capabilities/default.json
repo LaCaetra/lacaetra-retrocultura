@@ -1,10 +1,14 @@
 {
   "$schema": "../gen/schemas/desktop-schema.json",
   "identifier": "default",
-  "description": "Permisos de la ventana de la rueda",
-  "windows": ["main"],
+  "description": "Permisos de la rueda y de la ventana «Acerca de»",
+  "windows": [
+    "main",
+    "acerca"
+  ],
   "permissions": [
     "core:default",
-    "core:window:allow-start-dragging"
+    "core:window:allow-start-dragging",
+    "opener:default"
   ]
 }

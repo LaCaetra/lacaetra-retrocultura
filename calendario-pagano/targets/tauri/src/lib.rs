@@ -1,7 +1,8 @@
 //! Calendario Pagano · app de escritorio (Windows, macOS y escritorios Linux sin widgets propios).
 //!
 //! Una ventana sin marco, transparente y pegada al fondo muestra la rueda del año
-//! (dist/web). Las opciones están en el icono de la bandeja del sistema.
+//! (dist/web). Las opciones están en el icono de la bandeja del sistema y en el
+//! botón derecho sobre la rueda.
 //!
 //! Autoría de contenidos: Andrea M. Miranda Duque y Fernando A. Muñoz Villarejo
 //! - La Caetra, retrocultura (https://lacaetra.com/).
@@ -13,7 +14,7 @@ use serde::{Deserialize, Serialize};
 use tauri::{
     menu::{CheckMenuItem, Menu, MenuItem, PredefinedMenuItem, Submenu},
     tray::TrayIconBuilder,
-    AppHandle, Emitter, LogicalSize, Manager, Wry,
+    AppHandle, Emitter, LogicalSize, Manager, WebviewUrl, WebviewWindowBuilder, Wry,
 };
 use tauri_plugin_autostart::{MacosLauncher, ManagerExt};
 use tauri_plugin_window_state::StateFlags;
@@ -35,6 +36,9 @@ impl Default for Ajustes {
 }
 
 struct Estado(Mutex<Ajustes>);
+
+/// El menú de la bandeja, que también sale con el botón derecho sobre la rueda.
+struct MenuPrincipal(Menu<Wry>);
 
 fn ruta_ajustes(app: &AppHandle) -> Option<PathBuf> {
     app.path().app_config_dir().ok().map(|d| d.join("ajustes.json"))
@@ -71,16 +75,37 @@ fn get_settings(estado: tauri::State<Estado>) -> Ajustes {
     estado.0.lock().unwrap().clone()
 }
 
+#[tauri::command]
+fn mostrar_menu(window: tauri::Window, menu: tauri::State<MenuPrincipal>) {
+    let _ = window.popup_menu(&menu.0);
+}
+
+/// Ventana «Acerca de» (una sola; si ya está abierta, se trae al frente).
+fn acerca_de(app: &AppHandle) {
+    if let Some(w) = app.get_webview_window("acerca") {
+        let _ = w.show();
+        let _ = w.set_focus();
+        return;
+    }
+    let _ = WebviewWindowBuilder::new(app, "acerca", WebviewUrl::App("acerca.html".into()))
+        .title("Acerca de Calendario Pagano")
+        .inner_size(420.0, 620.0)
+        .resizable(false)
+        .center()
+        .build();
+}
+
 pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_single_instance::init(|_, _, _| {}))
+        .plugin(tauri_plugin_opener::init())
         .plugin(tauri_plugin_autostart::init(MacosLauncher::LaunchAgent, None))
         .plugin(
             tauri_plugin_window_state::Builder::default()
                 .with_state_flags(StateFlags::POSITION)
                 .build(),
         )
-        .invoke_handler(tauri::generate_handler![get_settings])
+        .invoke_handler(tauri::generate_handler![get_settings, mostrar_menu])
         .setup(|app| {
             let handle = app.handle().clone();
             let ajustes = cargar(&handle);
@@ -100,11 +125,12 @@ pub fn run() {
                 app, "inicio", "Iniciar con el sistema", true,
                 app.autolaunch().is_enabled().unwrap_or(false), None::<&str>,
             )?;
-            let acerca = MenuItem::with_id(app, "acerca", "La Caetra · retrocultura", false, None::<&str>)?;
+            let acerca = MenuItem::with_id(app, "acerca", "Acerca de Calendario Pagano", true, None::<&str>)?;
             let salir = MenuItem::with_id(app, "salir", "Salir", true, None::<&str>)?;
             let sep1 = PredefinedMenuItem::separator(app)?;
             let sep2 = PredefinedMenuItem::separator(app)?;
             let menu = Menu::with_items(app, &[&fase, &submenu, &inicio, &sep1, &acerca, &sep2, &salir])?;
+            app.manage(MenuPrincipal(menu.clone()));
 
             TrayIconBuilder::with_id("bandeja")
                 .icon(app.default_window_icon().cloned().expect("falta el icono"))
@@ -115,6 +141,7 @@ pub fn run() {
                     let id = event.id().as_ref().to_string();
                     match id.as_str() {
                         "salir" => app.exit(0),
+                        "acerca" => acerca_de(app),
                         "inicio" => {
                             let al = app.autolaunch();
                             let activo = al.is_enabled().unwrap_or(false);

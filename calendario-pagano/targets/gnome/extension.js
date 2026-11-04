@@ -16,7 +16,9 @@ import Pango from 'gi://Pango';
 import PangoCairo from 'gi://PangoCairo';
 import Cairo from 'cairo';
 
+import * as BoxPointer from 'resource:///org/gnome/shell/ui/boxpointer.js';
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
+import * as PopupMenu from 'resource:///org/gnome/shell/ui/popupMenu.js';
 import {Extension} from 'resource:///org/gnome/shell/extensions/extension.js';
 
 /*@@CORE@@*/
@@ -32,7 +34,7 @@ export default class CalendarioPaganoExtension extends Extension {
         this._monitorsId = Main.layoutManager.connect('monitors-changed', () => this._place());
 
         this._area = new St.DrawingArea({reactive: true});
-        this._area.connect('button-press-event', (actor, event) => this._dragStart(actor, event));
+        this._area.connect('button-press-event', (actor, event) => this._onPress(actor, event));
         this._area.connect('motion-event', (actor, event) => this._dragMove(actor, event));
         this._area.connect('button-release-event', () => this._dragEnd());
         this._area.connect('repaint', area => {
@@ -46,6 +48,7 @@ export default class CalendarioPaganoExtension extends Extension {
         });
         // Encima del fondo de pantalla y debajo de las ventanas.
         Main.layoutManager._backgroundGroup.add_child(this._area);
+        this._buildMenu();
         this._place();
 
         this._timer = GLib.timeout_add_seconds(GLib.PRIORITY_DEFAULT, 60, () => {
@@ -54,11 +57,32 @@ export default class CalendarioPaganoExtension extends Extension {
         });
     }
 
-    // Arrastrar la rueda con el botón izquierdo para colocarla en el escritorio.
-    _dragStart(actor, event) {
+    // Menú del botón derecho sobre la rueda (el resto del escritorio conserva el suyo).
+    _buildMenu() {
+        this._menu = new PopupMenu.PopupMenu(Main.layoutManager.dummyCursor, 0, St.Side.TOP);
+        this._menu.addAction('Configurar Calendario Pagano…', () => this._openPrefs('ajustes'));
+        this._menu.addAction('Acerca de Calendario Pagano', () => this._openPrefs('acerca'));
+        this._menu.actor.hide();
+        Main.layoutManager.uiGroup.add_child(this._menu.actor);
+        this._menuManager = new PopupMenu.PopupMenuManager(this._area);
+        this._menuManager.addMenu(this._menu);
+    }
+
+    _openPrefs(page) {
+        this._settings.set_string('prefs-page', page);
+        this.openPreferences();
+    }
+
+    _onPress(actor, event) {
+        const [ex, ey] = event.get_coords();
+        if (event.get_button() === 3) {
+            Main.layoutManager.setDummyCursorGeometry(ex, ey, 0, 0);
+            this._menu.open(BoxPointer.PopupAnimation.FULL);
+            return Clutter.EVENT_STOP;
+        }
         if (event.get_button() !== 1)
             return Clutter.EVENT_PROPAGATE;
-        const [ex, ey] = event.get_coords();
+        // Arrastrar con el botón izquierdo para colocar la rueda.
         this._drag = {dx: ex - actor.x, dy: ey - actor.y};
         this._grab = global.stage.grab(actor);
         return Clutter.EVENT_STOP;
@@ -78,25 +102,33 @@ export default class CalendarioPaganoExtension extends Extension {
         this._drag = null;
         this._grab?.dismiss();
         this._grab = null;
-        // Guarda el monitor y la posición (en % del monitor) donde ha quedado.
+        // Se calcula todo ANTES de guardar: cada cambio de ajuste recoloca la rueda.
         const size = this._area.width;
-        const cx = this._area.x + size / 2, cy = this._area.y + size / 2;
+        const x = this._area.x, y = this._area.y;
+        const cx = x + size / 2, cy = y + size / 2;
         const monitors = Main.layoutManager.monitors;
         let index = monitors.findIndex(m => cx >= m.x && cx < m.x + m.width && cy >= m.y && cy < m.y + m.height);
         if (index < 0)
             index = Main.layoutManager.primaryIndex;
         const m = monitors[index];
         const pct = (v, start, length) => Math.min(100, Math.max(0, length > 0 ? (v - start) / length * 100 : 0));
-        this._settings.delay();   // los tres cambios de una vez
-        this._settings.set_int('monitor', index);
-        this._settings.set_double('pos-x', pct(this._area.x, m.x, m.width - size));
-        this._settings.set_double('pos-y', pct(this._area.y, m.y, m.height - size));
-        this._settings.apply();
+        const px = pct(x, m.x, m.width - size), py = pct(y, m.y, m.height - size);
+        this._saving = true;
+        try {
+            this._settings.set_int('monitor', index);
+            this._settings.set_double('pos-x', px);
+            this._settings.set_double('pos-y', py);
+        } catch (e) {
+            console.error(`calendario-pagano: no se pudo guardar la posición: ${e}`);
+        } finally {
+            this._saving = false;
+        }
+        this._place();
         return Clutter.EVENT_STOP;
     }
 
     _place() {
-        if (!this._area || this._drag)
+        if (!this._area || this._drag || this._saving)
             return;
         const monitors = Main.layoutManager.monitors;
         const index = Math.min(Math.max(this._settings.get_int('monitor'), 0), monitors.length - 1);
@@ -123,6 +155,9 @@ export default class CalendarioPaganoExtension extends Extension {
         for (const id of this._signals ?? [])
             this._settings.disconnect(id);
         this._signals = [];
+        this._menu?.destroy();
+        this._menu = null;
+        this._menuManager = null;
         this._area?.destroy();
         this._area = null;
         this._settings = null;

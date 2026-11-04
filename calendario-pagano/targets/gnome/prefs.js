@@ -15,8 +15,15 @@ const DONAR = 'https://liberapay.com/lacaetra/donate';
 
 export default class CalendarioPaganoPrefs extends ExtensionPreferences {
     fillPreferencesWindow(window) {
-        window.add(this._ajustes(this.getSettings()));
-        window.add(this._acercaDe());
+        const settings = this.getSettings();
+        const ajustes = this._ajustes(settings);
+        const acerca = this._acercaDe();
+        window.add(ajustes);
+        window.add(acerca);
+        // El menú del botón derecho elige con qué pestaña se abre.
+        if (settings.get_string('prefs-page') === 'acerca')
+            window.set_visible_page(acerca);
+        settings.set_string('prefs-page', 'ajustes');
         window.set_default_size(560, 640);
     }
 

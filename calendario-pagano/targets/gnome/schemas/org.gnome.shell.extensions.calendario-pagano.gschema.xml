@@ -25,5 +25,9 @@
       <default>true</default>
       <summary>Mostrar el nombre de la fase lunar</summary>
     </key>
+    <key name="prefs-page" type="s">
+      <default>'ajustes'</default>
+      <summary>Página que abren las preferencias (uso interno del menú)</summary>
+    </key>
   </schema>
 </schemalist>

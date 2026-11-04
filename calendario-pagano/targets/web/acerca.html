@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Acerca de Calendario Pagano</title>
+<style>
+  :root { --bg: #f5f0e8; --fg: #1f2a24; --dim: #5c6660; --accent: #004225; --gold: #9a7a20; --card: #ffffff; --line: #e2dccf; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0f1a14; --fg: #f5f0e8; --dim: #b9b3a8; --accent: #c9a84c; --gold: #c9a84c; --card: #17241c; --line: #26362c; }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--fg); font: 14px/1.45 "Segoe UI", "Helvetica Neue", "DejaVu Sans", "Noto Sans", sans-serif; }
+  main { padding: 24px 24px 20px; text-align: center; }
+  img { width: 112px; height: 112px; }
+  h1 { font: 700 22px/1.2 Georgia, "DejaVu Serif", serif; margin: 10px 0 2px; }
+  .version { color: var(--dim); margin: 0 0 10px; }
+  p { margin: 0 0 12px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; margin: 12px 0; text-align: left; }
+  .card h2 { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--gold); margin: 0 0 6px; }
+  .card p { margin: 0 0 4px; }
+  a { color: var(--accent); font-weight: 600; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .links { display: flex; flex-direction: column; gap: 6px; }
+  .small { font-size: 12px; color: var(--dim); }
+</style>
+</head>
+<body>
+<main>
+  <img src="icon.png" alt="">
+  <h1>Calendario Pagano</h1>
+  <p class="version" id="version"></p>
+  <p>Rueda del año con las ocho fiestas, el día del calendario celta de Coligny y la fase lunar.</p>
+
+  <div class="card">
+    <h2>Autoría de contenidos</h2>
+    <p>Andrea M. Miranda Duque</p>
+    <p>Fernando A. Muñoz Villarejo</p>
+    <p class="small">Este software ha sido desarrollado con la ayuda de Claude, el asistente de IA de Anthropic.</p>
+  </div>
+
+  <div class="card links">
+    <h2>La Caetra · retrocultura</h2>
+    <a href="https://lacaetra.com/">Web de La Caetra</a>
+    <a href="https://github.com/LaCaetra/lacaetra-retrocultura">Código fuente e incidencias</a>
+    <a href="https://liberapay.com/lacaetra/donate">Apoya el proyecto (Liberapay)</a>
+  </div>
+
+  <p class="small">Código: GPL-3.0 o posterior · Contenidos: CC BY-SA 4.0.<br>
+  El nombre y el logotipo de La Caetra no están incluidos en estas licencias.</p>
+</main>
+<script src="coligny.js"></script>
+<script>
+  document.getElementById("version").textContent = "Versión " + VERSION;
+  // En la app de escritorio, los enlaces se abren en el navegador del sistema.
+  const tauri = window.__TAURI__;
+  document.querySelectorAll("a").forEach(a => a.addEventListener("click", e => {
+    if (!tauri) return;
+    e.preventDefault();
+    tauri.core.invoke("plugin:opener|open_url", {url: a.href});
+  }));
+</script>
+</body>
+</html>

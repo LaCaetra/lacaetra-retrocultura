@@ -47,7 +47,11 @@
   setTimeout(() => { paint(); setInterval(paint, 60000); }, 60000 - Date.now() % 60000);
 
   if (tauri) {
-    document.addEventListener("contextmenu", e => e.preventDefault());
+    // Botón derecho: el mismo menú que el icono de la bandeja.
+    document.addEventListener("contextmenu", e => {
+      e.preventDefault();
+      tauri.core.invoke("mostrar_menu");
+    });
     // Arrastrar la rueda con el ratón para colocarla en el escritorio.
     canvas.addEventListener("mousedown", e => {
       if (e.button === 0) tauri.window.getCurrentWindow().startDragging();

@@ -27,8 +27,8 @@ Lo más importante:
 - **GNOME**: después de instalar la extensión hay que **cerrar la sesión y volver
   a entrar** antes de activarla.
 - **Windows**: si SmartScreen avisa, pulsa **Más información → Ejecutar de todas formas**.
-- **App de escritorio** (Windows, XFCE, MATE…): la rueda se arrastra con el ratón y
-  sus opciones están en el icono junto al reloj.
+- En todos los escritorios (salvo Übersicht en Mac) la rueda **se arrastra** con el
+  ratón y el **botón derecho** sobre ella da acceso a la configuración y a «Acerca de».
 
 ## Cómo se calculan las fechas
 

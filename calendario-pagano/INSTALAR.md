@@ -26,8 +26,9 @@ página de **[Versiones](https://github.com/LaCaetra/lacaetra-retrocultura/relea
    ```
 3. Haz clic derecho en el escritorio → **Añadir desklets**.
 4. Busca **Calendario Pagano**, selecciónalo y pulsa **+** (o arrástralo al escritorio).
-5. Para colocarlo, arrástralo con el ratón. Para cambiar el **tamaño** o mostrar u
-   ocultar el **nombre de la fase lunar**: clic derecho sobre la rueda → **Configurar**.
+5. Para colocarlo, arrástralo con el ratón.
+6. **Botón derecho sobre la rueda**: **Configurar…** (tamaño y nombre de la fase
+   lunar) y **Acerca de…**.
 
 ## GNOME
 
@@ -49,10 +50,9 @@ Funciona con GNOME 45 a 51.
    ```
    (o con el interruptor de la aplicación **Extensiones**).
 5. La rueda aparece arriba a la derecha. Minimiza las ventanas para verla.
-6. Para cambiar **tamaño**, **posición**, **monitor** o el **nombre de la fase lunar**:
-   ```bash
-   gnome-extensions prefs calendario-pagano@lacaetra.com
-   ```
+6. **Arrástrala** con el botón izquierdo para colocarla donde quieras; recuerda la posición.
+7. **Botón derecho sobre la rueda**: **Configurar** (tamaño, posición, monitor y
+   nombre de la fase lunar) y **Acerca de**.
 
 ## KDE Plasma 6
 
@@ -68,9 +68,10 @@ Funciona con GNOME 45 a 51.
      (para actualizar una versión anterior, cambia `--install` por `--upgrade`).
 3. Clic derecho en el escritorio → **Añadir widgets**, busca **Calendario Pagano** y
    arrástralo al escritorio.
-4. Para cambiar el **tamaño**, entra en el modo de edición y arrastra el borde del
-   widget. Para el **nombre de la fase lunar**: clic derecho sobre la rueda →
-   **Configurar Calendario Pagano**.
+4. Para **moverlo** o cambiar el **tamaño**, entra en el modo de edición (clic derecho
+   en el escritorio) y arrástralo o tira de su borde.
+5. **Botón derecho sobre la rueda → Configurar Calendario Pagano…**: nombre de la
+   fase lunar y, en la pestaña **Acerca de**, autoría y enlaces.
 
 ## XFCE, MATE, Budgie y otros escritorios Linux
 
@@ -93,8 +94,8 @@ transparente y siempre detrás de las demás ventanas.
      ```
 2. Abre **Calendario Pagano** desde el menú de aplicaciones.
 3. **Arrastra la rueda** con el ratón para colocarla; recuerda dónde la dejaste.
-4. Las opciones están en el **icono junto al reloj** (bandeja del sistema): tamaño,
-   nombre de la fase lunar, **Iniciar con el sistema** y Salir.
+4. **Botón derecho sobre la rueda** (o el **icono junto al reloj**): tamaño, nombre
+   de la fase lunar, **Iniciar con el sistema**, **Acerca de** y Salir.
 
 > En GNOME y KDE con Wayland usa mejor su widget propio (arriba): Wayland no deja
 > que una aplicación se quede siempre detrás de las demás ventanas.
@@ -106,8 +107,9 @@ transparente y siempre detrás de las demás ventanas.
    **Más información → Ejecutar de todas formas**. Es normal en programas libres
    que no pagan un certificado de firma.
 3. Al terminar, la rueda aparece en el escritorio. **Arrástrala** para colocarla.
-4. Las opciones están en el **icono junto al reloj** (puede estar escondido en la
-   flecha **^**): tamaño, nombre de la fase lunar, **Iniciar con el sistema** y Salir.
+4. **Botón derecho sobre la rueda** (o el **icono junto al reloj**, que puede estar
+   escondido en la flecha **^**): tamaño, nombre de la fase lunar, **Iniciar con el
+   sistema**, **Acerca de** y Salir.
 
 ## macOS
 
@@ -120,9 +122,9 @@ escritorio.
    (doble clic).
 3. En el icono de Übersicht → **Open Widgets Folder**, y mueve allí la carpeta
    `calendario-pagano.widget`.
-4. La rueda aparece arriba a la derecha. El **tamaño** y la **posición** se cambian
-   en las primeras líneas de `calendario-pagano.widget/index.jsx` (con cualquier
-   editor de texto).
+4. La rueda aparece arriba a la derecha. Übersicht no tiene menús ni arrastre: el
+   **tamaño**, la **posición** y el nombre de la fase lunar se cambian en las primeras
+   líneas de `calendario-pagano.widget/index.jsx` (con cualquier editor de texto).
 
 ---
 
