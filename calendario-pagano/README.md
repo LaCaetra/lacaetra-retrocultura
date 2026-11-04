@@ -17,7 +17,7 @@ Descarga el paquete de tu sistema en **[Versiones](https://github.com/LaCaetra/l
 | Linux · KDE Plasma 6 (Kubuntu, Fedora KDE, Debian…) | `calendario-pagano-plasma-*.plasmoid` | plasmoide |
 | Linux · XFCE, MATE, Budgie y otros | `Calendario.Pagano_*_amd64.deb`, `.rpm` o `.AppImage` | app de escritorio |
 | Windows 10 y 11 | `Calendario.Pagano_*_x64-setup.exe` | app de escritorio |
-| macOS | `calendario-pagano-macos-ubersicht-*.zip` | widget de Übersicht |
+| macOS 12 o posterior | instalador de una orden o `calendario-pagano-macos-ubersicht-*.zip` | widget de Übersicht |
 
 **📖 [Guía de instalación paso a paso para cada escritorio](INSTALAR.md)**, con
 instrucciones para desinstalar y qué hacer si algo no funciona.

@@ -132,7 +132,29 @@ transparente y siempre detrás de las demás ventanas.
 ## macOS
 
 En Mac se usa **Übersicht**, un programa libre y gratuito para poner widgets en el
-escritorio.
+escritorio. Necesita **macOS 12 Monterey** o posterior.
+
+### Instalación rápida (una sola orden)
+
+1. Abre la app **Terminal** (en Aplicaciones → Utilidades, o busca «Terminal» con
+   Cmd + espacio).
+2. Copia esta línea, pégala en la Terminal y pulsa Intro:
+   ```bash
+   curl -fsSL https://raw.githubusercontent.com/LaCaetra/lacaetra-retrocultura/main/calendario-pagano/scripts/instalar-macos.sh | bash
+   ```
+3. Si macOS pregunta si Terminal puede controlar «Eventos del Sistema», pulsa
+   **Permitir**: es para que Übersicht arranque solo al iniciar sesión.
+
+El instalador descarga Übersicht de su web oficial (si no lo tienes), coloca el
+calendario en su carpeta de widgets y lo abre. La rueda aparece arriba a la
+derecha. Puedes [leer el script](scripts/instalar-macos.sh) antes de ejecutarlo.
+
+Para quitarlo más adelante:
+```bash
+curl -fsSL https://raw.githubusercontent.com/LaCaetra/lacaetra-retrocultura/main/calendario-pagano/scripts/instalar-macos.sh | bash -s -- --desinstalar
+```
+
+### Instalación paso a paso (sin Terminal)
 
 **1. Instala Übersicht**
 - Descárgalo de [tracesof.net/uebersicht](https://tracesof.net/uebersicht/) y abre el `.zip`.
