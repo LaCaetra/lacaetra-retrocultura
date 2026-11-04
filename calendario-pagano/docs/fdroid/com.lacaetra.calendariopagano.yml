@@ -15,14 +15,14 @@ RepoType: git
 Repo: https://github.com/LaCaetra/lacaetra-retrocultura.git
 
 Builds:
-  - versionName: 0.9.2
-    versionCode: 902
-    commit: calendario-pagano-v0.9.2
+  - versionName: 0.9.3
+    versionCode: 903
+    commit: calendario-pagano-v0.9.3
     subdir: calendario-pagano/targets/android/app
     gradle:
       - yes
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^calendario-pagano-v.*$
-CurrentVersion: 0.9.2
-CurrentVersionCode: 902
+CurrentVersion: 0.9.3
+CurrentVersionCode: 903

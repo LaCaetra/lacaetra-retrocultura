@@ -26,8 +26,8 @@ android {
         applicationId = "com.lacaetra.calendariopagano"
         minSdk = 24
         targetSdk = 35
-        versionCode = 902        // lo actualiza build.mjs a partir de VERSION
-        versionName = "0.9.2"
+        versionCode = 903        // lo actualiza build.mjs a partir de VERSION
+        versionName = "0.9.3"
     }
 
     signingConfigs {

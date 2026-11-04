@@ -1,3 +1,7 @@
+**Novedades de la 0.9.3**
+
+- Android: ficha para F-Droid (descripción, icono y capturas).
+
 **Novedades de la 0.9.2**
 
 - **Android**: nuevo widget para la pantalla de inicio, con fondo transparente (`calendario-pagano-*-android.apk`). Sin servicios de Google.
