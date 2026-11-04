@@ -122,10 +122,9 @@ scripts/build-windows.sh                                     # Windows, desde Li
 cd ../.. && node build.mjs     # copia los paquetes compilados a dist/paquetes/
 ```
 
-En cada versión hay también un `.dmg` de la app para macOS, pero sin la firma de
-Apple (99 $/año) el sistema lo bloquea al abrirlo («está dañado»); se puede
-desbloquear con `xattr -cr "/Applications/Calendario Pagano.app"`. Por eso la vía
-recomendada en Mac es el widget de Übersicht.
+La app Tauri también compila en un Mac (`--bundles dmg`), pero sin la firma de
+Apple (99 $/año) el sistema la bloquea al abrirla; por eso en Mac se distribuye
+el widget de Übersicht.
 
 ## Cómo se ha hecho
 

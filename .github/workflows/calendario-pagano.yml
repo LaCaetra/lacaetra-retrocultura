@@ -1,7 +1,7 @@
 # Calendario Pagano: pruebas en cada cambio y, al crear una etiqueta
 # calendario-pagano-vX.Y.Z, una versión con todos los paquetes:
-# widgets (Cinnamon, GNOME, KDE, Übersicht) y la app de escritorio
-# para Windows, macOS y Linux.
+# widgets (Cinnamon, GNOME, KDE, Übersicht para macOS) y la app de
+# escritorio para Windows y Linux.
 name: Calendario Pagano
 
 on:
@@ -55,9 +55,11 @@ jobs:
           - nombre: Windows
             os: windows-latest
             args: --bundles nsis
-          - nombre: macOS
-            os: macos-latest
-            args: --target universal-apple-darwin --bundles dmg
+          # macOS: se distribuye el widget de Übersicht. Para volver a generar el .dmg
+          # (sin firma de Apple) basta con añadir aquí:
+          #   - nombre: macOS
+          #     os: macos-latest
+          #     args: --target universal-apple-darwin --bundles dmg
           - nombre: Linux
             os: ubuntu-22.04
             args: --bundles deb,rpm,appimage
