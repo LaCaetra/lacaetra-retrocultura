@@ -1,0 +1,16 @@
+{
+  "size": {
+    "type": "spinbutton",
+    "default": 360,
+    "min": 160,
+    "max": 1000,
+    "step": 20,
+    "units": "px",
+    "description": "Tamaño de la rueda"
+  },
+  "show-moon-phase-name": {
+    "type": "switch",
+    "default": true,
+    "description": "Mostrar el nombre de la fase lunar"
+  }
+}

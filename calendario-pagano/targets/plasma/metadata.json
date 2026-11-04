@@ -1,0 +1,19 @@
+{
+  "KPlugin": {
+    "Id": "org.lacaetra.calendariopagano",
+    "Name": "Calendario Pagano",
+    "Description": "Rueda del año con las ocho fiestas, día del calendario celta de Coligny y fase lunar.",
+    "Icon": "view-calendar-month",
+    "Authors": [
+      {"Name": "Andrea M. Miranda Duque"},
+      {"Name": "Fernando A. Muñoz Villarejo"}
+    ],
+    "Category": "Date and Time",
+    "FormFactors": ["desktop"],
+    "License": "GPL-3.0-or-later",
+    "Version": "@@VERSION@@",
+    "Website": "https://github.com/LaCaetra/lacaetra-retrocultura"
+  },
+  "KPackageStructure": "Plasma/Applet",
+  "X-Plasma-API-Minimum-Version": "6.0"
+}

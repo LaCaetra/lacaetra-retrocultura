@@ -1,0 +1,8 @@
+# Generado
+calendario-pagano/dist/
+calendario-pagano/targets/tauri/target/
+calendario-pagano/targets/tauri/gen/
+node_modules/
+__pycache__/
+*.pyc
+.DS_Store

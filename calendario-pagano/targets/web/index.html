@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calendario Pagano</title>
+<!--
+  Calendario Pagano · rueda del año (calendario celta de Coligny).
+  La usan la app de escritorio (Tauri) y la vista previa web.
+  Autoría de contenidos: Andrea M. Miranda Duque y Fernando A. Muñoz Villarejo
+  - La Caetra, retrocultura (https://lacaetra.com/).
+  Código: GPL-3.0-or-later · Contenidos: CC BY-SA 4.0
+-->
+<style>
+  html, body { margin: 0; height: 100%; background: transparent; overflow: hidden; }
+  body { display: grid; place-items: center; user-select: none; -webkit-user-select: none; cursor: default; }
+  canvas { display: block; width: 100vmin; height: 100vmin; }
+  /* Vista previa en navegador: un fondo para que se vea la transparencia. */
+  body.preview { background: radial-gradient(circle at 30% 20%, #6b7f8c, #2b3138 70%); }
+  body.preview canvas { width: min(90vmin, 520px); height: min(90vmin, 520px); }
+</style>
+</head>
+<body>
+<canvas id="rueda" aria-label="Rueda del año"></canvas>
+<script src="coligny.js"></script>
+<script>
+(() => {
+  const tauri = window.__TAURI__;
+  const canvas = document.getElementById("rueda");
+  const params = new URLSearchParams(location.search);
+  const settings = {showPhaseName: params.get("fase") !== "0"};
+  // ?fecha=2026-10-28 para probar otro día
+  const fixed = params.get("fecha") ? new Date(params.get("fecha") + "T12:00:00") : null;
+  if (!tauri) document.body.classList.add("preview");
+
+  function paint() {
+    const css = canvas.getBoundingClientRect().width;
+    const px = Math.round(css * (window.devicePixelRatio || 1));
+    if (canvas.width !== px) canvas.width = canvas.height = px;
+    renderWheel(canvas.getContext("2d"), px, fixed || new Date(), settings);
+  }
+
+  window.addEventListener("resize", paint);
+  document.fonts && document.fonts.ready.then(paint);
+  paint();
+  // Se repinta cada minuto, ajustado al cambio de minuto.
+  setTimeout(() => { paint(); setInterval(paint, 60000); }, 60000 - Date.now() % 60000);
+
+  if (tauri) {
+    document.addEventListener("contextmenu", e => e.preventDefault());
+    // Arrastrar la rueda con el ratón para colocarla en el escritorio.
+    canvas.addEventListener("mousedown", e => {
+      if (e.button === 0) tauri.window.getCurrentWindow().startDragging();
+    });
+    const apply = s => { Object.assign(settings, s); paint(); };
+    tauri.core.invoke("get_settings").then(apply);
+    tauri.event.listen("ajustes", e => apply(e.payload));
+  }
+})();
+</script>
+</body>
+</html>

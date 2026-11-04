@@ -1,0 +1,9 @@
+{
+  "uuid": "calendario-pagano@lacaetra.com",
+  "name": "Calendario Pagano",
+  "description": "Rueda del año sobre el escritorio: las ocho fiestas, el día del calendario celta de Coligny y la fase lunar.\n\nAutoría de contenidos: Andrea M. Miranda Duque y Fernando A. Muñoz Villarejo - La Caetra, retrocultura (https://lacaetra.com/).",
+  "shell-version": ["45", "46", "47", "48", "49", "50", "51"],
+  "url": "https://github.com/LaCaetra/lacaetra-retrocultura",
+  "settings-schema": "org.gnome.shell.extensions.calendario-pagano",
+  "version-name": "@@VERSION@@"
+}

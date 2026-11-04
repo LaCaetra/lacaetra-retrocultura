@@ -1,0 +1,30 @@
+[package]
+name = "calendario-pagano"
+version = "0.9.0"
+description = "Calendario Pagano: rueda del año celta como widget de escritorio"
+authors = ["Andrea M. Miranda Duque", "Fernando A. Muñoz Villarejo"]
+license = "GPL-3.0-or-later"
+repository = "https://github.com/LaCaetra/lacaetra-retrocultura"
+edition = "2021"
+
+[lib]
+name = "calendario_pagano_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["tray-icon", "macos-private-api"] }
+tauri-plugin-autostart = "2"
+tauri-plugin-window-state = "2"
+tauri-plugin-single-instance = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = "s"
+panic = "abort"
+strip = true

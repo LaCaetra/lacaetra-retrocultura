@@ -1,0 +1,87 @@
+# Calendario Pagano: pruebas en cada cambio y, al crear una etiqueta
+# calendario-pagano-vX.Y.Z, una versión con todos los paquetes:
+# widgets (Cinnamon, GNOME, KDE, Übersicht) y la app de escritorio
+# para Windows, macOS y Linux.
+name: Calendario Pagano
+
+on:
+  push:
+    branches: [main]
+    tags: ["calendario-pagano-v*"]
+    paths: ["calendario-pagano/**", ".github/workflows/calendario-pagano.yml"]
+  pull_request:
+    paths: ["calendario-pagano/**"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+defaults:
+  run:
+    working-directory: calendario-pagano
+
+jobs:
+  widgets:
+    name: Pruebas y widgets
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: sudo apt-get update && sudo apt-get install -y libglib2.0-bin zip
+      - run: node --test "tests/*.test.mjs"
+      - run: node build.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: widgets
+          path: calendario-pagano/dist/paquetes/*
+      - name: Versión
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          name: Calendario Pagano ${{ github.ref_name }}
+          body_path: calendario-pagano/docs/notas-version.md
+          files: calendario-pagano/dist/paquetes/*
+
+  app:
+    name: App de escritorio (${{ matrix.nombre }})
+    needs: widgets
+    if: startsWith(github.ref, 'refs/tags/')
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - nombre: Windows
+            os: windows-latest
+            args: --bundles nsis
+          - nombre: macOS
+            os: macos-latest
+            args: --target universal-apple-darwin --bundles dmg
+          - nombre: Linux
+            os: ubuntu-22.04
+            args: --bundles deb,rpm,appimage
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.os == 'macos-latest' && 'aarch64-apple-darwin,x86_64-apple-darwin' || '' }}
+      - name: Dependencias de Linux
+        if: matrix.os == 'ubuntu-22.04'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libwebkit2gtk-4.1-dev libayatana-appindicator3-dev librsvg2-dev libxdo-dev patchelf
+      - run: node build.mjs
+      - uses: tauri-apps/tauri-action@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          projectPath: calendario-pagano/targets/tauri
+          tauriScript: npx -y @tauri-apps/cli@2
+          tagName: ${{ github.ref_name }}
+          releaseName: Calendario Pagano ${{ github.ref_name }}
+          args: ${{ matrix.args }}
