@@ -10,7 +10,7 @@ página de **[Versiones](https://github.com/LaCaetra/lacaetra-retrocultura/relea
 - [Cinnamon](#cinnamon) (Linux Mint, Fedora Cinnamon, Debian con Cinnamon)
 - [GNOME](#gnome) (Debian, Ubuntu, Fedora Workstation)
 - [KDE Plasma 6](#kde-plasma-6) (Kubuntu, Fedora KDE, Debian con KDE)
-- [XFCE, MATE, Budgie y otros escritorios Linux](#xfce-mate-budgie-y-otros-escritorios-linux)
+- [XFCE, MATE, LXDE, Budgie y otros escritorios Linux](#xfce-mate-lxde-budgie-y-otros-escritorios-linux)
 - [Windows 10 y 11](#windows-10-y-11)
 - [macOS](#macos)
 - [Desinstalar](#desinstalar) · [Si algo no funciona](#si-algo-no-funciona)
@@ -73,7 +73,7 @@ Funciona con GNOME 45 a 51.
 5. **Botón derecho sobre la rueda → Configurar Calendario Pagano…**: nombre de la
    fase lunar y, en la pestaña **Acerca de**, autoría y enlaces.
 
-## XFCE, MATE, Budgie y otros escritorios Linux
+## XFCE, MATE, LXDE, Budgie y otros escritorios Linux
 
 Estos escritorios no tienen widgets propios, así que el calendario es una pequeña
 **aplicación** que muestra la rueda sobre el escritorio: sin marco, con fondo
@@ -97,6 +97,15 @@ transparente y siempre detrás de las demás ventanas.
 4. **Botón derecho sobre la rueda** (o el **icono junto al reloj**): tamaño, nombre
    de la fase lunar, **Iniciar con el sistema**, **Acerca de** y Salir.
 
+> **¿Sale un cuadrado negro alrededor de la rueda?** La transparencia necesita un
+> *compositor*. XFCE y MATE lo traen activado; **LXDE y Openbox no**. Instala
+> `picom` y añádelo al inicio de sesión:
+> ```bash
+> sudo apt install picom
+> mkdir -p ~/.config/autostart && cp /usr/share/applications/picom.desktop ~/.config/autostart/
+> ```
+> Cierra la sesión y vuelve a entrar.
+>
 > En GNOME y KDE con Wayland usa mejor su widget propio (arriba): Wayland no deja
 > que una aplicación se quede siempre detrás de las demás ventanas.
 
