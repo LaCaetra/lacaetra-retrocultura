@@ -203,7 +203,7 @@ necesita servicios de Google.
 
 Para recibir avisos de actualizaciones, puedes instalarlo con
 [Obtainium](https://obtainium.imranr.dev/) indicando la dirección de este repositorio.
-Pronto también en **F-Droid**.
+Previsto en **F-Droid** a partir de 2027.
 
 ---
 
