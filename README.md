@@ -9,7 +9,8 @@ antigua y pagana, calendarios, chapas… y algo de código.
 
 | Proyecto | Qué es |
 |---|---|
-| [**Calendario Pagano**](calendario-pagano/) | Rueda del año como widget de escritorio para Linux (Cinnamon, GNOME, KDE Plasma y otros), Windows, macOS y Android: las ocho fiestas, el día del calendario celta de Coligny y la fase lunar. |    | [El Planificador de los Dioses](planificador-de-los-dioses/) | Planificador semanal perpetuo en PDF, sin fechas ni meses: imprímelo y organiza cualquier semana con los dioses de tu parte. |
+| [**Calendario Pagano**](calendario-pagano/) | Rueda del año como widget de escritorio para Linux (Cinnamon, GNOME, KDE Plasma y otros), Windows, macOS y Android: las ocho fiestas, el día del calendario celta de Coligny y la fase lunar. |    
+| [**El Planificador de los Dioses**](planificador-de-los-dioses/) | Planificador semanal perpetuo en PDF, sin fechas ni meses: imprímelo y organiza cualquier semana con los dioses de tu parte. |
 
 Cada proyecto vive en su carpeta, con sus instrucciones de instalación. Los
 paquetes listos para instalar están en **[Versiones](https://github.com/LaCaetra/lacaetra-retrocultura/releases)**.
