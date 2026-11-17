@@ -1,4 +1,4 @@
-# Calendario Pagano · rueda del año
+# Samonios 1.0 · Calendario Pagano · rueda del año
 
 Widget de escritorio (y de móvil Android) con la **rueda del año**: las ocho fiestas, el día del
 **calendario celta de Coligny** y la **fase lunar** de hoy, con la cuenta atrás
